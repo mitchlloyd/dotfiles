@@ -1,0 +1,14 @@
+*
+!.ackrc
+!.agignore
+!.bashprofile
+!.bashrc
+!.bash_profile
+!.gemrc
+!.gitconfig
+!.gitignore_global
+!.gitignore
+!.gvimrc
+!.irb.rc
+!.rspec
+!.vimrc
