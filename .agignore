@@ -1,0 +1,8 @@
+log
+vendor
+tmp
+doc
+public/assets
+*.sql
+node_modules
+bower_components

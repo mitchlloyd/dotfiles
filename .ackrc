@@ -1,0 +1,8 @@
+--type-set=scss=.scss
+--type-set=sass=.sass
+--type-set=haml=.haml
+--type-set=handelbars=.hbs
+--type-set=coffeescript=.coffee
+--type-set=cucumber=.feature
+--ignore-dir=.bundle
+--ignore-dir=vendor

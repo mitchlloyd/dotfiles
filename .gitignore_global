@@ -1,0 +1,5 @@
+*~
+.DS_Store
+
+# Rails-Vim stuff
+config/projections.json
