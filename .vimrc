@@ -32,9 +32,6 @@ if has("mac") || has("macunix")
   nmap <D-P> <Plug>yankstack_substitute_newer_paste
 endif
 
-" Use HAML syntax for HAMLC
-au BufRead,BufNewFile *.hamlc set ft=haml
-
 syntax on
 
 " Let block visual mode cover virtual space
@@ -168,9 +165,6 @@ set laststatus=2
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -283,10 +277,10 @@ set splitbelow
 set splitright
 
 " Binding to save and get out of insert mode
-imap <C-space> <C-c>:w!<cr>
-cmap <C-space> <C-c>:w!<cr>
-nmap <C-space> <C-c>:w!<cr>
-vmap <C-space> <C-c>:w!<cr>
+" imap <C-space> <C-c>:w!<cr>
+" cmap <C-space> <C-c>:w!<cr>
+" nmap <C-space> <C-c>:w!<cr>
+" vmap <C-space> <C-c>:w!<cr>
 
 " Unmap escape
 "imap <Esc> <Nop>
@@ -311,10 +305,29 @@ function! RenameFile()
 endfunction
 map <Leader>r :call RenameFile()<cr>
 
-" Powerline steup
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" Use powerline fonts for airline
+let g:airline_powerline_fonts = 1
+let g:airline_detect_paste=0
+
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create_left(['mode'])
+  let g:airline_section_b = airline#section#create([])
+  let g:airline_section_c = airline#section#create(['%<', 'file', ' ', 'readonly'])
+  let g:airline_section_gutter = airline#section#create(['%='])
+  let g:airline_section_x = ''
+  let g:airline_section_y = ''
+  let g:airline_section_z = ''
+  let g:airline_section_warning = airline#section#create(['syntastic', 'eclim', 'whitespace'])
+  " let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'iminsert'])
+  " let g:airline_section_b = airline#section#create(['hunks', 'branch'])
+  " let g:airline_section_c = airline#section#create(['%<', 'file', ' ', 'readonly'])
+  " let g:airline_section_gutter = airline#section#create(['%='])
+  " let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype'])
+  " let g:airline_section_y = airline#section#create_right(['ffenc'])
+  " let g:airline_section_z = airline#section#create(['windowswap', '%3p%%', ' ', 'linenr', ':%3v '])
+  " let g:airline_section_warning = airline#section#create(['syntastic', 'eclim', 'whitespace'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 """ Screencasting settings """
 
@@ -333,4 +346,15 @@ python del powerline_setup
 " Don't break word boundaries by hyphen
 set isk+=-
 
-source ~/.vimrc.mguterl
+" Recommended beginning setttings for syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+
+" Give up on validating html files
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+" let g:syntastic_reuse_loc_lists = 0

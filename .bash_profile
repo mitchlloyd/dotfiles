@@ -49,12 +49,15 @@ alias gba="git branch -a"
 alias gcp="git cherry-pick"
 alias gl="git log --pretty='format:%Cgreen%h%Creset %an - %s' --graph"
 alias gpom="git pull origin master"
+alias grbc="git rebase --continue"
 
 # More aliases
 
 # Work around cli bug with gitx
 alias gx="gitx --git-dir=."
-alias v="mvim"
+
+alias v="mvim ."
+alias es="ember serve"
 
 # Editor aliases
 
