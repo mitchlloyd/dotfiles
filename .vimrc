@@ -21,7 +21,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
 Plugin 'zerowidth/vim-copy-as-rtf'
 Plugin 'nono/vim-handlebars'
 Plugin 'pangloss/vim-javascript'
@@ -39,6 +38,8 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'othree/html5.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'maxbrunsfeld/vim-yankstack'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on
@@ -66,12 +67,11 @@ syntax on
 " Let block visual mode cover virtual space
 set virtualedit=block
 
-" Setup theme for gui
-if has('gui_running')
-  colorscheme solarized
-  set guioptions=egmrt
-  let g:solarized_contrast="high"
-endif
+" Color theme
+colorscheme solarized
+set background=light
+set guioptions=egmrt
+let g:solarized_contrast="high"
 
 set nocompatible
 set laststatus=2
@@ -336,6 +336,8 @@ map <Leader>r :call RenameFile()<cr>
 " Use powerline fonts for airline
 let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=0
+let g:airline_theme='solarized'
+let s:airline_theme='solarized'
 
 function! AirlineInit()
   let g:airline_section_a = airline#section#create_left(['mode'])
