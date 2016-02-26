@@ -11,11 +11,40 @@ filetype off
 filetype plugin indent off
 set runtimepath+=/usr/local/go/misc/vim
 
-" Setup Pathogen
-call pathogen#infect()
+" BEGIN Vundle setup from https://github.com/VundleVim/Vundle.vim
 
-filetype on
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'zerowidth/vim-copy-as-rtf'
+Plugin 'nono/vim-handlebars'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-commentary'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'lambdatoast/elm.vim'
+Plugin 'othree/html5.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'maxbrunsfeld/vim-yankstack'
+
+call vundle#end()
 filetype plugin indent on
+filetype on
+
+" END Vundle setup
 
 " Hook up CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -39,10 +68,9 @@ set virtualedit=block
 
 " Setup theme for gui
 if has('gui_running')
-  colorscheme solarized-ml
-  "set backround=light
+  colorscheme solarized
   set guioptions=egmrt
-  let g:solarized_contrast="stark"
+  let g:solarized_contrast="high"
 endif
 
 set nocompatible
