@@ -58,6 +58,7 @@ alias gx="gitx --git-dir=."
 
 alias v="mvim ."
 alias es="ember serve"
+alias es!="killall ember && ember serve"
 
 # Editor aliases
 
