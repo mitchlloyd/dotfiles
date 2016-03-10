@@ -87,3 +87,6 @@ function _update_ps1() {
 }
 
 export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
