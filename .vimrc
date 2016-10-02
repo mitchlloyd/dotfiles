@@ -40,6 +40,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'posva/vim-vue'
+Plugin 'mcasper/vim-infer-debugger'
 
 call vundle#end()
 filetype plugin indent on
