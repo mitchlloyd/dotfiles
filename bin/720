@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+echo "Setting $1 bounds to 720p"
+
+if [ $1 = "Chrome" ]
+then
+  # Chrome has some really big tab/chrome area.
+  dimensions="{10, 31, 1290, 787}"
+  # dimensions="{250, 185, 1530, 940}"
+else
+  # dimensions="{250, 199, 1530, 940}"
+  dimensions="{10, 67, 1290, 787}"
+fi
+
+# 720p is 1280x720.
+# Bounds is startX, startY, endX, endY. Adjust size from starting position to account for this
+osascript -e "tell application \"$1\" to set the bounds of the first window to $dimensions"
+
+# activate the app, to bring it to the front
+osascript -e "tell application \"$1\" to activate"

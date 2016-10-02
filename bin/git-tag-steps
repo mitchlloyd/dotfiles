@@ -1,0 +1,20 @@
+#!/usr/bin/ruby
+
+# Delete all tags
+
+system "git tag -d `git tag | grep -E '.'`"
+
+
+# Create a numbered step tag for each commit
+
+def step_name(num)
+  "step-#{num.to_s.rjust(2, '0')}"
+end
+
+commits = `git log --pretty=format:"%h"`
+
+commits.split("\n").reverse.each_with_index do |c, i|
+  unless i.zero?
+    system "git tag #{step_name(i)} #{c}"
+  end
+end
