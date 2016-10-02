@@ -326,3 +326,15 @@ let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 " Use ESLint when .eslintrc is available.
 " http://stackoverflow.com/questions/28573553/how-can-i-make-syntastic-load-a-different-checker-based-on-existance-of-files-in
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+
+" For vim-infer-debugger
+nmap <Leader>d :call AddDebugger("o")<cr>
+nmap <Leader>D :call RemoveAllDebuggers()<cr>
+
+let g:debugger_array = [['\.rb',             'debugger'],
+                       \['\.ex$',            'require IEx; IEx.pry'],
+                       \['\.exs',            'require IEx; IEx.pry'],
+                       \['\.erb',            '<% debugger %>'],
+                       \['\.eex',            '<%= require IEx; IEx.pry %>'],
+                       \['\.hbs',            '{{debugger}}'],
+                       \['\.js$',            'debugger;']]
