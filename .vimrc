@@ -78,8 +78,6 @@ let g:solarized_contrast="high"
 
 set nocompatible
 set laststatus=2
-" let g:Powerline_symbols = 'fancy'
-" set guifont=Inconsolata\ for\ Powerline:h15
 set guifont=Menlo\ for\ Powerline:h15
 
 " Switch back and forth between buffers
@@ -188,9 +186,6 @@ set viminfo^=%
 " Always show the status line
 set laststatus=2
 
-" Status line from Gary Berhardt
-" :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -251,45 +246,6 @@ set wildignore+=*/.git/*,*/node_modules/**,*/public/assets/source_maps/**,*/vend
 
 set number
 
-" rspec mappings
-map <Leader>a :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-
-function! RunCurrentSpecFile()
-  if InSpecFile()
-    let l:command = "bundle exec rspec " . @% . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunNearestSpec()
-  if InSpecFile()
-    let l:command = "bundle exec rspec " . @% . " -l " . line(".") . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunLastSpec()
-  if exists("t:last_spec_command")
-    call RunSpecs(t:last_spec_command)
-  endif
-endfunction
-
-function! InSpecFile()
-  return match(expand("%"), "_spec.rb$") != -1
-endfunction
-
-function! SetLastSpecCommand(command)
-  let t:last_spec_command = a:command
-endfunction
-
-function! RunSpecs(command)
-  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
-endfunction
-
 " Automatically set the text width in markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
@@ -307,20 +263,9 @@ endif
 set splitbelow
 set splitright
 
-" Binding to save and get out of insert mode
-" imap <C-space> <C-c>:w!<cr>
-" cmap <C-space> <C-c>:w!<cr>
-" nmap <C-space> <C-c>:w!<cr>
-" vmap <C-space> <C-c>:w!<cr>
-
-" Unmap escape
-"imap <Esc> <Nop>
-
 " Disable Ex mode
 map Q <Nop>
 
-" Don't add the comment prefix when I hit enter or o/O on a comment line.
-set formatoptions-=or
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
@@ -351,14 +296,6 @@ function! AirlineInit()
   let g:airline_section_y = ''
   let g:airline_section_z = ''
   let g:airline_section_warning = airline#section#create(['syntastic', 'eclim', 'whitespace'])
-  " let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'iminsert'])
-  " let g:airline_section_b = airline#section#create(['hunks', 'branch'])
-  " let g:airline_section_c = airline#section#create(['%<', 'file', ' ', 'readonly'])
-  " let g:airline_section_gutter = airline#section#create(['%='])
-  " let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype'])
-  " let g:airline_section_y = airline#section#create_right(['ffenc'])
-  " let g:airline_section_z = airline#section#create(['windowswap', '%3p%%', ' ', 'linenr', ':%3v '])
-  " let g:airline_section_warning = airline#section#create(['syntastic', 'eclim', 'whitespace'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
@@ -379,18 +316,12 @@ autocmd User AirlineAfterInit call AirlineInit()
 " Don't break word boundaries by hyphen
 set isk+=-
 
-" Recommended beginning setttings for syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 
 " Give up on validating html files
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
-" let g:syntastic_reuse_loc_lists = 0
 
 " Use ESLint when .eslintrc is available.
 " http://stackoverflow.com/questions/28573553/how-can-i-make-syntastic-load-a-different-checker-based-on-existance-of-files-in
