@@ -1,54 +1,58 @@
 """ SETUP PLUGINS """
 
-" Change the mapleader to comma, which is easier to reach than '\'
-let mapleader=","
-
-" Change command for commentary
-map <Leader>c  <Plug>Commentary
-
 " Link in go vim plugins
 filetype off
 filetype plugin indent off
 set runtimepath+=/usr/local/go/misc/vim
 
-" BEGIN Vundle setup from https://github.com/VundleVim/Vundle.vim
+" BEGIN Plug setup https://github.com/junegunn/vim-plug
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+" Commands
+Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPMRU', 'CtrlPMixed'] }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'zerowidth/vim-copy-as-rtf', { 'on': 'CopyRTF' }
+Plug 'tpope/vim-commentary', { 'on': 'Commentary' }
+Plug 'mcasper/vim-infer-debugger', { 'on': ['AddDebugger', 'RemoveAllDebuggers'] }
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'zerowidth/vim-copy-as-rtf'
-Plugin 'nono/vim-handlebars'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-commentary'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'othree/html5.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'posva/vim-vue'
-Plugin 'mcasper/vim-infer-debugger'
+" Language Specific
+Plug 'nono/vim-handlebars', { 'for': 'handlebars' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+Plug 'othree/html5.vim', { 'for': ['html', 'handlebars'] }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'posva/vim-vue', { 'for': 'vue' }
 
-call vundle#end()
+" Theming
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Misc
+Plug 'scrooloose/syntastic'
+Plug 'airblade/vim-gitgutter'
+Plug 'maxbrunsfeld/vim-yankstack'
+
+call plug#end()
+
+" END Plug setup
+
 filetype plugin indent on
 filetype on
 
-" END Vundle setup
+" Change the mapleader to comma, which is easier to reach than '\'
+let mapleader=","
+
+" Change command for commentary
+map <Leader>c  <Plug>Commentary
 
 " Hook up CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
