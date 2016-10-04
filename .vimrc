@@ -14,20 +14,20 @@ Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPMRU', 'CtrlPMixed'] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'zerowidth/vim-copy-as-rtf', { 'on': 'CopyRTF' }
-Plug 'tpope/vim-commentary', { 'on': 'Commentary' }
+Plug 'tpope/vim-commentary'
 Plug 'mcasper/vim-infer-debugger', { 'on': ['AddDebugger', 'RemoveAllDebuggers'] }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " Language Specific
-Plug 'nono/vim-handlebars', { 'for': 'handlebars' }
+Plug 'nono/vim-handlebars'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-Plug 'othree/html5.vim', { 'for': ['html', 'handlebars'] }
+Plug 'othree/html5.vim'
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 
