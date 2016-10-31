@@ -15,7 +15,7 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPMRU', 'CtrlPMi
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'zerowidth/vim-copy-as-rtf', { 'on': 'CopyRTF' }
 Plug 'tpope/vim-commentary'
-Plug 'mcasper/vim-infer-debugger', { 'on': ['AddDebugger', 'RemoveAllDebuggers'] }
+Plug 'mcasper/vim-infer-debugger'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
