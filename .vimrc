@@ -51,6 +51,12 @@ filetype on
 " Change the mapleader to comma, which is easier to reach than '\'
 let mapleader=","
 
+" Start Mat Stuff
+" nmap , ;
+" imap ;j <esc>
+" map <Leader>d :NERDTreeToggle<CR>
+" End Mat Stuff
+
 " Change command for commentary
 map <Leader>c  <Plug>Commentary
 
