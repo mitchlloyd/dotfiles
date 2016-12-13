@@ -20,7 +20,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " Language Specific
-Plug 'nono/vim-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -30,6 +30,7 @@ Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'othree/html5.vim'
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'dustinfarris/vim-htmlbars-inline-syntax'
 
 " Theming
 Plug 'altercation/vim-colors-solarized'
@@ -348,3 +349,5 @@ let g:debugger_array = [['\.rb',             'debugger'],
                        \['\.eex',            '<%= require IEx; IEx.pry %>'],
                        \['\.hbs',            '{{debugger}}'],
                        \['\.js$',            'debugger;']]
+
+autocmd FileType javascript HighlightInlineHbs
