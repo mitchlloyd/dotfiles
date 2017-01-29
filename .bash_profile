@@ -3,10 +3,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# Code for rbenv
-eval "$(rbenv init -)"
-
-# Put homwbrew directories before system
+# Put homewbrew directories before system
 PATH=/usr/local/bin:$PATH
 
 # Add sbin to path
@@ -28,6 +25,9 @@ PATH=/usr/local/share/npm/bin:$PATH
 PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH
+
+# Code for rbenv
+eval "$(rbenv init -)"
 
 # Some bundle sugar
 alias be="bundle exec"
