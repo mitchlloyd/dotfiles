@@ -3,3 +3,6 @@
 
 # Rails-Vim stuff
 config/projections.json
+
+# VSCode
+.vscode
