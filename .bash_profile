@@ -3,6 +3,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+export GOPATH=/usr/local/Cellar/go/1.8.3/
+
 # Put homewbrew directories before system
 PATH=/usr/local/bin:$PATH
 
