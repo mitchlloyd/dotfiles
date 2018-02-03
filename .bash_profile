@@ -3,7 +3,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-export GOPATH=/usr/local/Cellar/go/1.8.3/
+GOPATH=$HOME/go
 
 # Put homewbrew directories before system
 PATH=/usr/local/bin:$PATH
@@ -93,3 +93,6 @@ export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 
 export NVM_DIR=~/.nvm
 . $(brew --prefix nvm)/nvm.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
