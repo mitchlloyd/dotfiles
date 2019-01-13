@@ -96,3 +96,6 @@ export NVM_DIR=~/.nvm
 
 export PATH="$HOME/.cargo/bin:$PATH"
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
